@@ -519,7 +519,7 @@
 
         .instruction-item.active .instruction-explanation {
             padding: 0 25px 25px;
-            max-height: 500px;
+            max-height: 3000px;
         }
 
         .instruction-item.active .instruction-title {
@@ -785,8 +785,9 @@
                 <a href="#demo">交互演示</a>
                 <a href="#instruction">功能列表</a>
                 <a href="#faq">FAQ</a>
+                <a href="#qrcode">入群</a>
             </div>
-            <button class="cta-button">开始使用</button>
+            <button class="cta-button" data-target="#qrcode">开始使用</button>
         </nav>
     </div>
 </header>
@@ -797,7 +798,7 @@
         <h1>Sakura Yuki</h1>
         <p>喵喵喵</p>
         <div class="hero-buttons">
-            <button class="cta-button">开始使用</button>
+            <button class="cta-button" data-target="#qrcode">开始使用</button>
             <button class="outline-button" data-target="#demo">观看演示</button>
         </div>
     </div>
@@ -894,7 +895,7 @@
                 <ul style="margin-left: 20px; margin-bottom: 20px; color: var(--gray);">
                     <li>世界计划信息获取</li>
                     <li>BiliBili更新订阅</li>
-                    <li>Osu!数据查询</li>
+                    <li>osu!数据查询</li>
                 </ul>
                 <button class="cta-button">开始对话</button>
             </div>
@@ -956,11 +957,9 @@
                     <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
                 </div>
                 <div class="instruction-explanation">
-                    <ul>
-                        <li>pjskinfo &lt;曲名&gt; , song &lt;曲名&gt; , musicinfo &lt;曲名&gt; 查看当前歌曲详细信息</li>
-                        <li>pjskbpm &lt;曲名&gt; 查看当前歌曲的bpm</li>
-                        <li>查bpm &lt;数字&gt; 查询对应bpm所有歌曲</li>
-                    </ul>
+                    <p>pjskinfo &lt;曲名&gt; , song &lt;曲名&gt; , musicinfo &lt;曲名&gt; 查看当前歌曲详细信息<br>
+                        pjskbpm &lt;曲名&gt; 查看当前歌曲的bpm<br>
+                        查bpm &lt;数字&gt; 查询对应bpm所有歌曲</p>
                 </div>
             </div>
             <div class="instruction-item">
@@ -969,12 +968,562 @@
                     <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
                 </div>
                 <div class="instruction-explanation">
-                    <ul>
-                        <li>谱面预览 &lt;曲名&gt; &lt;难度&gt; 查询对应曲名，难度的谱面预览</li>
-                        <li style="margin-left: 15px">难度 支持的输入: easy, normal, hard, expert, master, append, ez, nm, hd, ex, ma, ap, apd</li>
-                        <li style="margin-left: 15px">如果查询 master 可省略难度</li>
-                        <li>谱面来源：<div class="instruction-links"><a href="https://pjsekai.moe/">ぷろせかもえ！</a></div></li>
-                    </ul>
+                    <p>谱面预览 &lt;曲名&gt; &lt;难度&gt; 查询对应曲名，难度的谱面预览 <br>
+                       难度 支持的输入: easy, normal, hard, expert, master, append, ez, nm, hd, ex, ma, ap, apd<br>
+                       如果查询 master 可省略难度</p><br>
+                    谱面来源：<div class="instruction-links"><a href="https://pjsekai.moe/">ぷろせかもえ！</a></div>
+                </div>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    昵称设置
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <p>musicset &lt;昵称&gt; to &lt;歌名&gt; 设置歌曲昵称<br>
+                        musicdel &lt;昵称&gt; 删除歌曲昵称 <br>
+                        charalias &lt;昵称&gt; 查看特定角色所有昵称<br>
+                        charaset &lt;昵称&gt; to &lt;角色名(可以是现有昵称)&gt; 设置角色群通用昵称,如charasetkndto宵崎奏<br>
+                        charadel &lt;昵称&gt; 删除角色群通用昵称<br>
+                        grcharaset &lt;新昵称&gt; to &lt;已有昵称&gt; 设置仅当前群可用角色昵称<br>
+                        grcharadel &lt;已有昵称&gt; 删除仅当前群可用角色昵称<br>
+                        [后续将会添加]charainfo &lt;昵称&gt; 查看该角色的个人资料</p><br>
+                    <h4>INFO</h4>
+                    <p>所有歌曲昵称设置，角色昵称设置的日志内容将会在实时日志页面按日公示。
+                        若违反相关条例将会视情况采取删除对应昵称至禁止使用Bot不等的措施。</p>
+                </div>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    查询玩家信息
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <p style="opacity: 0.6">在命令前加en即可查询国际服信息，如en绑定, ensk, en逮捕, enpjskprofile<br>
+                        在命令前加tw即可查询台服信息，如tw绑定, twsk, tw逮捕, twpjskprofile<br>
+                        在命令前加kr即可查询韩服信息，如kr绑定, krsk, kr逮捕, krpjskprofile<br>
+                        在命令前加cn即可查询国服信息，如cn绑定, cnsk, cn逮捕, cnpjskprofile</p><br>
+                    <p>绑定+id 通过游戏uid绑定你的游戏账号</p>
+                </div>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    MySekai相关查询
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <h4>INFO</h4>
+                    <p>Android 用户建议使用 <div class="instruction-links"><a href="https://haruki.seiunx.com/upload_mysekai">Haruki工具箱-上传MySekai数据</a></div>引继信息上传模式<br><br>
+                    <p> iOS / iPadOS 用户 建议使用代理工具MitM模块更新，要求如下:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;拥有代理工具 ( 如 Shadowrocket / Quantumult X / Surge / Loon / Stash )<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;有需要请加群1026390204咨询群友</p><br>
+                    <p>mysekai_analyze、mysekai分析、ms分析、msa 根据用户上传至Haruki数据库的数据分析MySekai现存材料<br>
+                        mysekai_analyze2、mysekai分析2、ms分析2、msa2 根据用户上传至Haruki数据库的数据分析MySekai现存材料 (新版UI设计，感谢Foglio的设计)<br>
+                        mysekai_maps、msm、mysekai地图、ms地图 根据用户上传至Haruki数据库的数据生成资源分布图</p><br><br>
+                        感谢原作者<div class="instruction-links"><a href="https://github.com/MiddleRed">中红(MiddleRed)</a></div><p>以及移植作者</p><div class="instruction-links"><a href="https://github.com/NeuraXmy">ルナ茶(NeuraXmy)</a></div><br>
+                    <h4>INFO</h4>
+                    <p>mysekai_maps指令后面添加数字可以查询单图地图<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;数字1: 草原<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;数字2: 花田<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;数字3: 沙滩<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;数字4: 废墟</p><br>
+                    <p>mysekai照片 + 序号、ms照片 + 序号、msp + 序号 根据用户上传到Haruki数据库的数据下载用户在MySekai里面拍摄的照片 (按拍摄顺序)</p>
+                </div>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    活动排名相关查询
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <h4>INFO</h4>
+                    <p>以下指令添加wl前缀可以查询World Link活动单榜的排名和分数<br>
+                        指令最后添加 -c &lt;角色别名&gt; 可以获取特定角色单榜的排名和分数，不添加则获取目前正在进行的单榜排名和分数。 例子如下:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;wlsk 100 获取目前单榜的100名的排名和分数<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;wlsk 100 -c haruka 获取桐谷遥单榜的100名的排名和分数</p><br>
+                    <p>sk 如果你在前100，可以用该命令查询排名和分数<br>
+                        sk &lt;游戏数字id&gt; 查询特定游戏玩家的排名和分数<br>
+                        sk &lt;排名&gt; 查询特定排名玩家的排名与分数，支持同时查询最多7个玩家<br>
+                        查房 &lt;排名&gt; , cf &lt;排名&gt; 查询特定排名最近1小时相关信息<br>
+                        sk线, 查询榜线分数<br>
+                        时速 查看近一小时各榜线的PT增长速度<br>
+                        半日速 查看近半天各榜线的PT增长速度<br>
+                        日速 查看近一天各榜线的PT增长速度</p><br>
+                    <h4>INFO</h4>
+                    <p>时速、半日速、日速指令后面可以跟数字，将特定时间范围内的PT增长转换为对应速度<br>
+                        如时速10 = 10分钟内PT增长量转换的时速<br>
+                        可输入数字单位为分钟，最大不超过1440分钟(即一天)</p><br>
+                    <p>分数线 &lt;排名&gt; 、rtr &lt;排名&gt; 查看本期活动中特定排名的分数趋势<br>
+                        追踪、ptr 追踪自己在本期活动中的活动PT趋势与活动排名趋势<br>
+                        追踪 &lt;排名&gt; 、ptr &lt;排名&gt; 追踪目前特定排名在本期活动中的活动PT趋势与活动排名趋势</p>
+                    <h4>INFO</h4>
+                    <p>追踪指令支持双排名查询<br>
+                        如追踪1 2会对比目前排名为1和2的两个玩家的活动PT趋势和活动排名趋势</p><br>
+                    <p>[后续将会添加]sk预测 查看预测线<br>
+                        预测信息来自</p><div class="instruction-links"><a href="https://3-3.dev/">3-3.dev</a></div><p>(仅日服)</p>
+                </div>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    打歌情况相关查询
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <p>逮捕@[xxx] 如果此人绑定过id，就可以看TA的ex与master难度fc、ap数，排位信息(后续将会添加)<br>
+                        逮捕+id 查看对应id的expert难度、master难度、append难度的fc、ap数，排位信息(后续将会添加)<br>
+                        pjskprofile, 个人信息 生成绑定id的profile图片</p>
+                </div>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    隐私相关指令
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <p>不给看 不允许他人逮捕自己，但自己还是可以逮捕自己，使用sk查分和逮捕自己时不会显示游戏uid<br>
+                        给看 允许他人逮捕自己</p>
+                </div>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    卡牌及活动信息相关查询
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <p>查卡面/查活动功能开发者:</p><div class="instruction-links"><a href="https://github.com/cYanosora">Yozora</a></div><br>
+                    <p>查卡/查卡面/查询卡面/findcard [角色昵称]: 获取当前角色所有卡牌<br>
+                        查卡/查卡面/查询卡面/cardinfo [卡面id]: 获取卡牌id详细卡面信息<br>
+                        查活动/查询活动/event [活动id]: 查看指定活动信息（可直接使用event查看当前活动信息）<br>
+                        查活动/查询活动/findevent [关键字]: 通过关键字筛选活动，返回活动概要图，没有关键字则会返回提示图<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;单关键字方式：<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查活动 5v5：返回活动类型为5v5的活动概要<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查活动 紫月：返回活动属性为紫月的活动概要<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查活动 knd：返回当期出卡(包括报酬)含knd的活动概要<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查活动 miku：返回当期出卡含任意组合的miku的活动概要<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查活动 25miku：返回当期出卡含白葱的活动概要<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查活动 25h：返回当期出卡含任意25成员(不含vs)的活动概要，而并不是25箱活的活动概要<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;多关键字方式：<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查活动 草 5v5：返回活动类型为5v5，活动属性为绿草的活动概要<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查活动 knd 蓝：返回活动属性为蓝星，出卡含knd的活动概要<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查活动 普活 紫月 knd：返回活动类型为马拉松，活动属性为紫月，出卡含knd的活动概要(即使knd为不同属性的报酬卡，也会显示)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;使用例：<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查活动 25h：仅返回25箱活的活动概要<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查活动 25h 25miku：返回25箱活且vs出卡为白葱的活动概要<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;查活动 knd ick：返回出卡同时包括knd、ick混活的活动概要<br>
+                        活动图鉴/活动列表/活动总览/findevent all: 返回当前所有活动的概要，该功能由于图片过大无法在频道bot使用</p>
+                </div>
+            </div>
+        </div>
+        <div class="instruction-container">
+            <div class="section-title">
+                <h3>Project Sekai</h3>
+                <p>SakuraBot</p>
+                <small style="opacity: 0.3">用户数据部分可以加上tw前缀来触发台服对应功能<br>
+                    部分台服功能有独立特性，具体会在功能内说明<br>
+                    没有参数的功能就是可以被at的，使用时请注意</small>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    用户数据相关
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <p>绑定<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;通过'绑定 ID'的方式绑定，ID可以在游戏内个人信息页查看<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;绑定后默认为'不给看'模式，无法被at<br>
+                        给看/不给看（日/台服通用）<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;开放/关闭其他人at你的权限<br>
+                        pjskprofile<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;获取个人信息，图片类似旧版profile<br>
+                        视奸<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;返回当前队伍综合力及其构成<br>
+                        逮捕<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;查询expert master FC/AP进度<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;上传数据的用户可以查询高难度FC/AP以及排位数据<br>
+                    <b>接下来的功能都需要上传数据才可以使用，请进入下方页面查看教程</b></p>
+                    <div class="instruction-links"><a href="http://go.mikuware.top/">点我进入上传数据页面（日/台服）</a></div>
+                    <p><small>日服玩家可以直接将引继信息复制给bot实现上传，不需要去上面那个页面（需要重新引继一次）</small><br>
+                    <b>在上方页面上传suite的用户可以查询上传时数据，上传credential的用户可以查询实时数据。以下不再重复。</b><br>
+                        rk<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;获取玩家排位信息<br>
+                        b39<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;获取rating分数最高的39首歌曲和总分（仅供参考）<br>
+                        pjsk b30<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;获取rating分数最高的30首歌曲和平均分数（仅供参考）<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;和b39的分数算法不同，可随意参考<br>
+                        pjsk进度(ex)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;查询master歌曲完成情况（AP、FC、Clear、All）<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;查询expert难度可以使用'pjsk进度ex'<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;不支持其他难度<br>
+                        pjskdetail<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;获取个人详细信息<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;包括但不限于金币及水晶数量，家具练度，每日挑战进度等，如介意可私聊查询。<br>
+                        pjskcard（日服限定）<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;获取个人卡牌图鉴<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;现在可以通过pjskcard+角色花名的方式查看单角色图鉴了<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;待后续支持其他服<br>
+                        pjskevent<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;获取个人10次最高排名的活动记录<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;当期要拿到排名奖励才会记录<br>
+                        组卡<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;返回在指定箱活中推荐使用的最佳卡组top7，按活动点数排序<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;暂时锁定歌曲为expert难度的独りんぼエンヴィー<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;有2个参数，第一个参数为指定队名，第二个参数为指定属性（颜色），两个参数之间必须有且只有一个空格<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;队名包括: ln/mmj/vbs/ws/25/vs<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;属性包括: 绿/粉/橙/蓝/紫<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;例子：组卡 ln 橙<br>
+                        活动组卡<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;返回在当前活动中推荐使用的最佳卡组top7，按活动点数排序<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;有2个参数，第1个参数为歌曲名称，第2个参数是歌曲难度<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;不输入难度参数时，默认难度expert<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;不输入歌曲参数时，默认歌曲独りんぼエンヴィー<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;例子：活动组卡 龙 hard<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;wl活的第一个参数会被识别为对应角色，不输入参数则仅按加成计算<br>
+                        挑战组卡<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;返回在每日挑战中推荐使用的最佳卡组top7，按分数排序<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;有3个参数，第一个参数为角色名（花名ok），第二个参数为歌曲名称，第三个参数是歌曲难度<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;不输入难度参数时，默认难度expert<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;不输入歌曲参数时，默认歌曲独りんぼエンヴィー<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;例子：挑战组卡 ick 10th master<br>
+                        最强组卡<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;返回您同色同队中分数最高的卡组top7，按分数排序<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;暂时锁定歌曲为expert难度的独りんぼエンヴィー，不需要任何参数<br>
+                        查时间<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;查询注册时间<br>
+                        sk<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;查询活动排名或者前100名内指定排名<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;wl活动时，可以加角色花名查看单榜排名<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;仅credential用户可使用查询自己排名功能</p>
+                </div>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    其他功能（不需要上传数据）
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <p>id<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;返回当前QQ号绑定id<br>
+                        sk预测<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;获取预测线信息，不一定能获取到所有档线<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;预测数据来源于33<br>
+                        分数线/sk线<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;获取当前档线分数信息<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;数据最大有5分钟的延迟<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;wl活可以+角色名查看单榜分数线<br>
+                        ss<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;获取当前档线时速<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;计算方式为20分钟速度*3<br>
+                        wlss<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;获取当前角色单榜档线时速<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;计算方式为20分钟速度*3<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;暂时为日服限定功能<br>
+                        查房<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;获取本人/目标档线最近1小时的活动情况<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;无法确认烤森刷周回，请自行判断<br>
+                        pinfo<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;查询歌曲信息（可以使用名称或花名）<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;可以通过 pset+空格+新昵称+空格+to+空格+旧昵称 的方式给歌曲设置花名，pdel+昵称删除昵称<br>
+                        charinfo<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;查询角色所有花名（可以使用名称或花名）<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;可以通过charset/chardel进行修改，格式同上<br>
+                        难度排行<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;格式：难度排行+level+空格+难度<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;返回指定条件下所有歌曲的难度定数排行<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;可以加上fc/ap前缀查看fc/ap难度定数排行<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;自2023-2-20以后的歌曲定数按ap难度计算，fc/clear难度与ap相同<br>
+                        谱面预览<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;使用方式：歌曲名+(谱/铺)面预览，默认master难度<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;可以使用歌曲名+ex(谱/铺)面预览查看expert难度谱面<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;现在也可以使用歌曲名+apd(谱/铺)面预览查看append难度谱面了<br>
+                        技能预览<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;使用方式：歌曲名+技能预览，默认master难度<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;可以使用歌曲名+ex技能预览查看expert难度<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;返回谱面技能分布及分数占比<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;新键型更新之后的曲子目前暂不支持<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;已支持新曲子！但目前未自动更新谱面，如有异常请反馈<br>
+                        findcard<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;返回满足指定条件的所有卡牌<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;最多3个参数，使用说明如下：<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;1个参数的情况<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;参数会识别为队名、队名+vs(lnvs、mmjvs等，指该团的vs)或角色名<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;2个参数的情况<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;第2个参数会被识别为稀有度或属性<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;稀有度包含：4、3、2、1、birthday、限定<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;属性包含：绿、绿草、粉、粉花、粉星、紫、紫月、黄、橙、黄心、橙心、蓝、蓝星<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;3个参数的情况<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;此时，第2个和第3个参数会被识别为稀有度/属性或属性/稀有度<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;稀有度和属性同上<br>
+                        card<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;使用方式：card+卡编号<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;返回指定卡面图片<br>
+                        cardinfo<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;使用方式：cardinfo+卡编号<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;返回卡面基础信息（属性、技能、当期活动等）<br>
+                        5v5胜率<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;在5v5活动中返回双方队伍胜率<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;目前每1小时更新一次<br>
+                        5v5分数<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;在5v5活动每次结算时可以获取双方分数<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;疑似有bug，只能获取到第一次结算分数<br>
+                        tf启动<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;在5v5活动中，送3次无偿火给绑定ID用户<br>
+                        pjsk听歌识曲<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;不需要订阅啦！<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;直接输入命令触发，可通过命令“结束猜曲”中断<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;随机选择音源剪取中间4-7秒发送，有40秒时间回答<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;直接输入歌曲名/花名即可进行回答，没有提示<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;如有异常可以输入'结束猜曲'来结束<br>
+                        pjsk猜卡面<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;同样不需要订阅啦！<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;直接输入命令触发，中途不可中断<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;选择一张3/4星，随机截取250*250像素发送，有40秒时间回答<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;直接输入角色名/花名即可进行回答，没有提示<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;如有异常可以输入'结束猜卡面'来结束<br>
+                        pjsk抽卡<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;格式：pjsk抽卡/pjskXX连/pjsk反抽卡+当期卡池编号（可通过cardinfo查询）<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;默认10连，以图片形式返回<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;XX连的抽卡结果会以文字形式返回（只有第一个10连有保底）<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;反抽卡指的是反转2星4星概率<br>
+                        pjsk表情制作<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;用来制作各种pjsk小表情，简单说就是自定义表情上的文字<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;可以通过pjsk -h查看具体使用说明<br>
+                        看<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;格式：看+角色名<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;返回该角色随机卡图<br>
+                        随个<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;格式：随个+组合名（不强制）+level<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;返回随机指定level歌曲info<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;如果有组合名，会从有该组合演唱/翻唱的曲子里进行随机<br>
+                        葱什么<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;返回随机歌曲info<br>
+                        活动<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;查看当前活动信息<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;加个活动编号可以查询指定活动，例如活动86<br>
+                        findevent<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;查询满足指定条件的所有活动信息<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;具体可以在bot中使用'findevent help'查询如何使用该功能<br>
+                        查bpm<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;查询指定bpm或在变bpm歌曲中包含指定bpm的歌曲<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;返回全部满足条件的歌曲<br>
+                        查物量<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;查询所有歌曲难度中，谱面物量等于指定物量的歌曲及难度<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;返回全部满足条件的歌曲及难度</p>
+                </div>
+            </div>
+            <div class="section-title">
+                <h3>maimai DX</h3>
+                <p>SakuraBot</p>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    音游功能
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <p>已支持舞萌DX2025<br>
+                        新增fc/ap50及拟合b50功能，顾名思义<br><br>
+                        自动更新b50的步骤如下！<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;先获取扫描登录二维码得到的一串以SGWC开头的字符串<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;然后，通过命令“mai bind 上文提到的字符串”（空格无所谓），进行账号绑定操作<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;接着，打开水鱼网站，点击编辑个人资料，再点击第二行第2个看起来像刷新的图标<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;如果操作正确，这里应该会出现一串字符。点击第二行第3个图标进行复制<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;接下来，再通过命令“maitoken 刚才复制的字符串”（连不连着都无所谓），将token绑定到账户上<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;现在，只要输入命令“maiupdate”（连不连着都无所谓），就可以直接更新b50了（之后可以直接通过此命令更新b50）<br><br>
+                        其他功能的使用说明请发送:<br>
+                        帮助maimaiDX</p>
+                </div>
+            </div>
+            <div class="section-title">
+                <h3>osu!</h3>
+                <p>SakuraBot</p>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    音游部分
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <p>运行情况取决于Yumu服务端<br>
+                        具体操作指南可以通过！ymhelp指令查看<br>
+                        或者移步至</p>
+                    <div class="instruction-links"><a href="http://docs.365246692.xyz/">Yumubot官网</a></div>
+                </div>
+            </div>
+            <div class="section-title">
+                <h3>Chunithm</h3>
+                <p>SakuraBot</p>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    音游功能
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <p>目前仅支持国服，数据完全来自水鱼（divingfish）<br>
+                    <del>好久没更新了，摆烂说是</del><br>
+                        图片设计来自Uni，github@watagashi-uni<br>
+                        chusearch<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;查询歌曲id，不区分大小写，仅匹配歌曲名称<br>
+                        chuinfo<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;查询歌曲基本信息，仅支持id查询<br>
+                        chuchart<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;查询歌曲谱面，仅支持id查询<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;可以通过添加“ex”、“ma”、“ult”后缀查看该歌曲expert、master、ultima（如果有）难度谱面，不区分大小写<br>
+                        chu b30<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;查询b30 r10及总rating</p>
+                </div>
+            </div>
+            <div class="section-title">
+                <h3>其他功能</h3>
+                <p>SakuraBot</p>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    早晚安
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <p><b>来自nonebot_plugin_morning<br>
+                        github@KafCoppelia<br></b>
+                        早安/晚安<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;打卡记录睡眠时间<br>
+                        我的作息<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;显示本周信息<br>
+                        群友作息<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;查看群友作息信息</p>
+                </div>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    漂流瓶
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <p><b>来自nonebot_plugin_bottle<br>
+                        赛博漂流瓶，扔出去就可能会被捡到（<br>
+                        不要什么都扔哈，发现关小黑屋，run不出来那种<br>
+                        不是怎么现在漂流瓶里这么多涩图啊？<del>好看爱看多发点</del><br>
+                        <del>之前玩这个扔涩图被其他bot主ban了</del><br>
+                        现在点赞漂流瓶也会at原主了<br>
+                        扔奶龙的看到这个去面壁思过</b><br>
+                        指令部分<br>
+                        以下指令均有30秒的冷却时间，30秒内只能触发1条指令<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;扔漂流瓶 [文本/图片] 或 扔漂流瓶 后一条消息跟漂流瓶内容<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;寄漂流瓶 [文本/图片] （同扔漂流瓶，防止指令冲突用）<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;捡漂流瓶<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;查看漂流瓶 [漂流瓶编号]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;点赞漂流瓶 [漂流瓶编号]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;评论漂流瓶 [漂流瓶编号] [文本]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;举报漂流瓶 [漂流瓶编号]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;删除漂流瓶 [漂流瓶编号]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;我的漂流瓶<br>
+                        功能须知<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;扔漂流瓶 指令目前无字数限制。若只说了扔漂流瓶，则插件将会监听用户的下一条消息。<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;捡漂流瓶 若捡到的漂流瓶存在回复，则会显示最近5条，使用查看漂流瓶查看所有回复，捡漂流瓶后发送+可以点赞漂流瓶。<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;查看漂流瓶 无评论时不展示漂流瓶内容。漂流瓶的发送者可以通过本指令查看内容，无论有无评论。<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;评论漂流瓶 评论内容将通过在原群聊at的方式告诉扔出瓶子的人<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;举报漂流瓶 5次后将自动删除，举报成功后会私聊bot主漂流瓶详情内容<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;删除漂流瓶 漂流瓶发送者可以删除自己扔出的漂流瓶。二次确认会触发删除操作的指令为：是/Y/Yes/y/yes。其他的均直接取消操作。<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;点赞漂流瓶 可以通过在捡漂流瓶后直接发送+来点赞刚才获取的漂流瓶。点赞数量只是作为展示，并不会对捡漂流瓶的随机性作出影响。</p>
+                </div>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    GPT
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    顾名思义，AI对话<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;触发方式为/+要说的话+@机器人<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;不能连续对话<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<del>模型是GPT-4o-mini-2024-07-18，数据到2023年10月</del><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;模型已更新为DeepSeek-V3-0324，数据到2024年7月<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;不要滥用，小心宏观调控<br>
+                </div>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    每日运势抽签
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <p><b>运势抽签部分<br>
+                        来自nonebot-plugin-fortune<br>
+                        github@KafCoppelia<br>
+                        就是每日运势，有抽签和塔罗两种</b><br>
+                        命令“抽签”，抽取今日运势（每日一次）<br>
+                        命令“占卜”，抽取塔罗牌（一套）<br>
+                        命令“塔罗牌”，抽取一张塔罗牌</p>
+                </div>
+            </div>
+            <div class="section-title">
+                <h3>其他功能</h3>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    找Yuki
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <p>@Yuki或者直接发送名字<br>
+                    Yuki就会出现了~</p>
+                </div>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    好感度
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <p>早安~ 午安~ 晚安~<br>
+                        Yuki会给你祝福哦~<br><br>
+                        以下是指令:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;早安 / 早上好 增加5点好感，仅限5:00-11:00<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;午安 / 中午好 增加3点好感，仅限11:00-17:00<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;晚安 / 晚上好 增加8点好感，仅限17:00-次日5:00<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;好感度 显示当前Yuki对你的好感度及好感等级<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<small style="opacity: 0.3">偷偷告诉你哦~一共有11级好感等级</small></p>
+                </div>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    入群&退群提醒（需找Bot主订阅）
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <p>顾名思义喵~</p>
+                </div>
+            </div>
+            <div class="section-title">
+                <h3>内测功能</h3>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    机厅人数统计
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <p>以下是命令:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;[机厅]=[数字] / [机厅] [数字] 更新机厅人数为[数字]人<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;[机厅]+[数字] 更新机厅人数为[最近12小时内更新的人数+数字]人<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;[机厅]-[数字] 更新机厅人数为[最近12小时内更新的人数-数字]人<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;几卡 / jk 显示最近4小时内的所有机厅人数数据<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;几卡 [数字 / jk [数字] 显示最近[数字]小时内的所有机厅人数数据<br>
+                        <small style="opacity: 0.3">暂时不支持用户注册机厅</small></p>
+                </div>
+            </div>
+            <div class="instruction-item">
+                <div class="instruction-title">
+                    天气
+                    <span class="instruction-toggle"><i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="instruction-explanation">
+                    <p>以下是命令:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;天气 / tq 显示今明两日天气<br>
+                        <small style="opacity: 0.3">暂时不支持用户在非注册群聊使用<br>
+                        暂时不支持用户注册群聊</small>
+                    </p>
                 </div>
             </div>
         </div>
@@ -1054,10 +1603,10 @@
                     <a href="https://fontawesome.com/start">Font Awesome</a>
                 </div>
             </div>
-            <div class="footer-column">
-                <h3>公司</h3>
+            <div class="footer-column" id="qrcode">
+                <h3>入群二维码</h3>
                 <div class="footer-links">
-                    <p style="color: var(--gray); margin-bottom: 20px;">公司是神马？Yuki不知道哦~</p>
+                    <img src="qr.png" alt="qrcode" height="100px" width="100px">
                 </div>
             </div>
         </div>
