@@ -497,6 +497,32 @@
       grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
+    .backend-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 32px;
+      padding: 12px 24px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      transition: background 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), transform 0.3s var(--ease-spring);
+    }
+    .backend-link:hover {
+      background: var(--ground);
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-1px);
+    }
+    .backend-link svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.3s var(--ease-out);
+    }
+    .backend-link:hover svg {
+      transform: translateY(-2px);
+    }
     .spec-item {
       padding: 16px;
       border-radius: var(--radius-sm);
@@ -927,6 +953,12 @@
             <p class="spec-label">开发状态</p>
             <p class="spec-value">底层稳定，持续迭代中</p>
           </div>
+          <a href="https://nama.shiromizu.top" class="backend-link" target="_blank" rel="noopener noreferrer">
+            详细了解生巧慕斯？
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 3v10M3 7l4-4 4 4"/>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
