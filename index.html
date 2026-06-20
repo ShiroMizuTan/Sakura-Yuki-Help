@@ -392,6 +392,40 @@
       letter-spacing: 0.04em;
     }
 
+    .about-profile {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+    }
+    .about-profile-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .about-profile-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .about-profile-value {
+      font-size: 14px;
+      color: var(--ink);
+      font-weight: 400;
+    }
+    .profile-color-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--secondary);
+      margin-right: 8px;
+      vertical-align: middle;
+      box-shadow: 0 0 0 3px rgba(242, 181, 200, 0.2);
+    }
+
     /* ===== BACKEND ===== */
     .backend {
       padding: 128px 0;
@@ -768,7 +802,7 @@
   </section>
 
   <!-- ===== ABOUT ===== -->
-  <section class="about" id="about">
+  <!--<section class="about" id="about">
     <div class="container">
       <div class="about-grid">
         <div class="about-visual fade-up">
@@ -801,6 +835,46 @@
             <div class="about-name-row">
               <span class="label">汉字</span>
               <span class="value">桜雪</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>-->
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual fade-up">
+          <div class="about-visual-inner">
+            <div class="about-visual-kanji">桜雪</div>
+            <p class="about-visual-name">Sakura Yuki</p>
+            <p class="about-visual-reading">さくらゆき</p>
+          </div>
+        </div>
+        <div class="about-text fade-up" style="transition-delay: 0.15s">
+          <p class="section-label">About</p>
+          <h2>关于 Sakura Yuki</h2>
+          <p>
+            Sakura Yuki（纱久良雪希）是一个运行在 QQ 平台上的智能机器人。
+            名字取自日文中「樱」与「雪」的意象——樱花代表温暖与美好，初雪象征纯净与宁静。
+          </p>
+          <p>
+            我们希望 Sakura Yuki 能像春日飘落的樱花花瓣一样，自然地融入你的日常，
+            为群聊带来一份轻柔的陪伴。
+          </p>
+          <div class="about-profile">
+            <div class="about-profile-item">
+              <span class="about-profile-label">Birthday</span>
+              <span class="about-profile-value">4月27日</span>
+            </div>
+            <div class="about-profile-item">
+              <span class="about-profile-label">Color</span>
+              <span class="about-profile-value"><span class="profile-color-dot"></span>樱花粉</span>
+            </div>
+            <div class="about-profile-item">
+              <span class="about-profile-label">Likes</span>
+              <span class="about-profile-value">甜品、你</span>
             </div>
           </div>
         </div>
